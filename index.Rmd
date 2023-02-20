@@ -3,52 +3,85 @@ title: "Exploratory Analysis"
 output: html_document
 ---
 
-## Project title
-
-Give your project a concise, interesting title that summarizes the entirety of your project
+## Weather Conditions on Mars Data Analysis
 
 ### Authors
 
-Names of your team members
+Sofia Alukal (salukal@uw.edu), Evan Chang (evanc9@uw.edu), Sara Duan (saraduan@uw.edu), Emily Hao (haoemily@uw.edu)
 
 ### Date
 
-Winter 2022
+Winter 2023
 
 ### Abstract
 
-No more than three sentences that summarize your project. Focus on the very most important aspects. For example: (1) "Our main question is .... This question is important because .... To address the question, we will ...." (2) "We are concerned with ..., because .... To address this concern, we plan to ...." (3) "Consider that .... This is important because .... Accordingly, we plan to ...."
+Our project's main question will focus on analyzing the weather conditions on Mars. This question is important because understanding the weather conditions on a different planet such as Mars will give us more insight into  the potential of life in places other than Earth. To address this question, we will be analyzing how the minimum and maximum temperatures, pressure, and atmospheric opacity trends over time since Curiosity landed on Mars in order to draw a conclusion on what the weather looks like on Mars.
 
 ### Keywords
 
-3-5 keywords that summarize your project.
-(e.g., "Keywords: human physiology; bicycle exercise; Gen Z; times-series data")
+Mars, weather_mars, weather, Curiosity, rover
 
 ### Introduction  
 
-Briefly introduce your project.  Include 3-5 research questions. What motivates the questions? Why are they important? (at least 200 words)
+Our project will be analyzing a dataset containing the solar longitude, minimum and maximum temperatures, pressure, and atmospheric opacity of Mars over Martian and Earth times. Below are some main questions we will be investigating:
+
+  1. How do temperatures vary on each sol (Martian day)?
+  2. Is there any evidence of different seasons on Mars?
+  3. How does the solar longitude determine the weather conditions on Mars?
+
+There has been much debate and exploration over the question of if life is possible on Mars over the years. While this analysis will not necessarily prove if this assertion is true, analyzing the weather conditions on Mars is an important and vital step to possibly answering this question. Thus, we decided to chose to focus on these questions specifically because we found it fascinating to learn and share about the weather conditions on another planet like Mars. Being able to understand Mars' weather conditions could also bring insight to how we understand our own weather conditions on Earth. We were also curious to see if Mars' weather conditions had any similiarties and differences compared to the Earth we live on. Our goal is to hopefully help others become fascinated by the notion of an extraterrestial planet like Mars having weather and different seasons
 
 ### Related Work  
+Our research topic is on Mars’ weather conditions:
 
-Describe your topic and related work in this space. You must include 3 citations to related work (URLs to similar work, high quality articles from the popular press, research papers, etc. ) Please use a standard citation style of your choice. (at least 200 words)
+1. [Mars Weather Data Analysis Using Machine Learning Techniques](https://doi.org/10.1007/s12145-021-00643-0)
+    + This paper also analyzes Mars’ weather data by using machine learning models, claiming that Mars’ climate makes it an ideal candidate for space colonization. It begins by describing how the similar axial tilt creates similar seasons on Mars compared to Earth before conducting tests and creating data visualizations using novel machine learning algorithms. From these tests, they conclude that their machine learning programs produce better models of analysis compared to traditional observational research.
+2. [The Current Weather and Climate of Mars: 12 years of Atmospheric Monitoring By the Planetary Fourier Spectrometer on Mars Express](https://doi.org/10.1016/j.icarus.2019.113406)
+    + This research uses thermal-infrared spectra to retrieve atmospheric temperature profiles on mars. Their collected dataset covers season, latitude, longitude, and local time, observing Mars’ global atmosphere and weather conditions. However, they focus their research more on daily dust cycles and the presence of water vapor in atmospheres, creating data visualizations of ice opacity and dust storms. 
+3. [Multiyear mars Orbiter Camera (MOC) Observations of Repeated Martian Weather Phenomena During the Northern Summer Season](https://doi.org/10.1029/2001JE001588)
+    + This research project also analyzes Mars’ weather conditions; however, they focus their research more on Mars’ interannual variations in its northern summer seasonal climate. By analzying dust storms and cloud patterns on Mars, they observe Mars’ northern summer and southern winter seasons using the Mars Global Surveyor Mars Orbiter Camera (MOC), drawing the conclusion that clouds, dust storms, and dust devils reoccur annually at nearly the same locations and time of year.
+
 
 ### The Dataset
+Where did you find the data? Please include a link to the data source
 
-Where did you find the data? Please include a link to the data source  
+* We found our dataset on [The Puddings GitHub Data repository](https://github.com/the-pudding/data/tree/master/mars-weather). After researching a lot of different data sets we all found that this one had a really interesting topic and unique data.
+
 Who collected the data?  
-How was the data collected or generated?  
+
+* This data was collected by Rover Environmental Monitoring Station (REMS) on-board the Curiosity Rover, and it was published by NASA’s Mars Science Laboratory.
+
+How was the data collected or generated?
+
+* This data was collected by the REMS on the Curiosity Rover. REMS has many different monitors and sensors to collect pressure, windspeed, temperature, humidity and much more. The sensors are booms on the rover's mast. 
+
 Why was the data collected?  
+
+* The curiosity rover is there to gather intell and data on Mars's atmosphere and environment. It has collected data longterm, the same way many other rovers have. The more we learn about other planets and their science, the more we will ultimately understand about our own.
+
 How many observations (rows) are in your data?  
+
+* There are 1895 rows in our data. Because there were so many observations, we were thinking of maybe analyzing the last five years as opposed to the last ten. 
+
 How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
+
+* There are 10 features in the data. 
+
+What, if any, ethical questions or questions of power do you need to consider when working with this data?
+
+* If there were species or animals on Mars, we would consider whether the Curiosity rover is damaging ecosystems or environments. However, we researched what Mars's environment contains, and according to Nasa the planet is completely inhospitable.
+
 What are possible limitations or problems with this data?   (at least 200 words)
+
+* This dataset's main limitation is that it does not always specify and quantify its necessary values. For instance, the atmo_opacity column only specifies "Sunny". This is not a very quantifiable value as it does not specify the degree to which the opacity of the atmosphere has changed that day. Because most, if not all, values in this column are "Sunny," this column creates some difficulties when trying to draw a viable conclusion on how atmospheric opacity helps contribute to the weather conditions found on Mars. Additionally, the wind_speed column indicates "NaN" through many rows, if not all rows. The dataset has addressed this limitation, saying that the "wind speed data has not be transmitted to Earth since Sol 1485." This leaves us with a large limitation because it is not possible to analyze the wind speeds in Mars as there is no valid number to analyze on any of Mars’ days. Finally, one last challenge is how all of the data was collected when Curiosity was in the Southern hemisphere. The dataset and our analysis could be more comprehensive if another rover was able to collect the same data, but in the northern hemisphere. This dataset, although has mostly valid, comprehensive data that is ideal for analysis, also contains columns that are almost unusable due to its vagueness or unquantifiabliity. 
+* In order for this data set to have meaningful analysis, there has to be a comparison of earth's temperatures (in an equivalent location) with the Mars data set; without a control group or base comparison, most of the temperature data doesn’t signify. Another complication with this dataset is the lack of specificity regarding the Curiosity rover's location; we know what general hemisphere it is located in, as well as the Mars-Sun angle, but that still leaves much room for misinterpretation or improper analysis. Part of the reason there are inconsistencies with this data set is due to many of the units being Earth’s standards. For example, Earth has a more circular orbit compared to Mars’s elliptical orbit. This means that at different times of the year, Mars is further or closer to the Sun due to its elliptical orbit (and not just the axis tilt); however this doesn’t appear to be taken into consideration in the data set. Another inconsistency is the axis of Mars (25 degrees) compared to Earth (23.4 degrees), although slight they can drastically affect the temperature of the most polar hemispheres of the planets.
 
 ### Implications
 
-Assuming you answer your research questions, briefly describe the expected or possible implications for technologists, designers, and policymakers. (at least 150 words)
+An analysis of this dataset would provide a more comprehensive view on the environments and conditions on Mars, which can help technologists, designers, and policymakers determine the amount of funding that is input into space research programs, such as NASA. A comprehensive view of this has implications beyond just simply finding out the weather on Mars—it can allow for a comparison between the conditions faced in Earth and the conditions faced in Mars. Due to the deteriorating health of Earth today from greenhouse gases, deforestation, pollution, etc..., a consideration for a more viable option for human habitation may be necessary for the future of human kind. Although an analysis of this specific dataset is not nearly enough for a consideration for the possibility of human habitation on Mars, designers can use this concise method of comparing the weathers between Earth and Mars and expand further upon them, and technologists may want to update and implement more relevant technologies for space research, perhaps including an updated design for future rovers to collect more data more efficiently. Scientists and world leaders may benefit from a proper analysis of the conditions of Mars if Earth is no longer a viable option for human life.
 
 ### Limitations & Challenges
-What challenges or limitations might you need to address with your project idea more broadly? Briefly discuss. (at least 150 words)
+Analyzing data about Mars' weather conditions creates some major challenges and limitations. For one, it is incredibly expensive to collect this data, as space research can cost billions of dollars. Because this process also takes a long time since we have to wait years to collect weather data in order to draw conclusions about seasons and cycles, this can create a less comprehensive data analysis with what we currently are able to analyze. Moreover, as previously mentioned, Curiousity collects all the data from the southern hemisphere, which may create some ambiguity when trying to extrapolate an interpretation about Mars' entire global weather conditions. Finally, one last challenge concerns the accuracy of the data. It's expensive to have one rover collect data as is, but it creates questions about how accurate the data could be since Curiousity is only able to collect information from one location, instead of averaging out the same data points from different locations in the same general area. 
 
 ### Summary Information
 
