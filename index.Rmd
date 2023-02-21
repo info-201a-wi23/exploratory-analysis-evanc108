@@ -10,7 +10,6 @@ library("stringr")
 library("tidyverse")
 source("aggregate_table.R")
 source("summary_script.R")
-source("pressure_boxplots.R")
 source("temp_scatterplot.r")
 source("graph_1_sofia_alukal.R")
 ```
@@ -99,7 +98,7 @@ Analyzing data about Mars' weather conditions creates some major challenges and 
 
 ### Summary Information
 
-Our analysis revealed that over the `r mars_days_observed` sols, or Martian days observed, the maximum temperature difference is `r highest_temp_diff` degrees Celsius which occurred during month `r month_highest_temp_diff`, while the minimum temperature difference is `r lowest_temp_diff` degrees Celsius, which occurred during month `r month_lowest_temp_diff`. The highest temperature recorded during one Martian day was `r highest_temp` degrees Celsius, which was observed during month `r month_highest_temp`, while the lowest temperature observed is `r lowest_temp` degrees, which occurred during month `r month_lowest_temp`. Finally the average atmospheric pressure on Mars overall is `r avg_p` pa, with month `r month_highest_pressure` having the highest pressure of `r highest_pressure` pa and with month `r month_lowest_pressure` having the lowest pressure of `r lowest_pressure` pa.
+Our analysis revealed that over the `r mars_days_observed` sols, or Martian days observed, the maximum temperature difference is `r highest_temp_diff` degrees Celsius which occurred during month `r month_highest_temp_diff`, while the minimum temperature difference is `r lowest_temp_diff` degrees Celsius, which occurred during month `r month_lowest_temp_diff`. The highest temperature recorded during one Martian day was `r highest_temp` degrees Celsius, which was observed during month `r month_highest_temp`, while the lowest temperature observed is `r lowest_temp` degrees, which occurred during month `r month_lowest_temp`. Finally the average atmospheric pressure on Mars overall is `r avg_p` Pa, with month `r month_highest_pressure` having the highest pressure of `r highest_pressure` Pa and with month `r month_lowest_pressure` having the lowest pressure of `r lowest_pressure` Pa.
 
 ### Table: Aggregate Mars Weather Data by Month
 
@@ -110,24 +109,24 @@ library("kableExtra")
 library("dplyr")
 
 knitr::kable(aggregate_table, "pipe", col.names = c('Month',
-                           'Average Minimum Temperature',
-                           'Average Maximum Temperature',
-                           'Average Temperature Difference',
-                           'Average Pressure'))
+                           'Average Minimum Temperature °C',
+                           'Average Maximum Temperature °C',
+                           'Average Temperature Difference °C',
+                           'Average Atmospheric Pressure (Pa)'))
 ```
 
 This table shows aggregate information of mars' average weather conditions by each of the twelve months, ordered numerically. We thought that this grouping was interesting to view how the average minimum and maximum temperature (measured in Celsius), as well as pressure varies, or doesn't vary month by month. By finding the average temperature differences between the average minimum and maximum temperatures, we were able to see that temperature on Mars varies extensively each day throughout the 12 month cycle. Some other insights, is how average pressure on Mars varies somewhat more during months 5-9 compared to the rest of the months.
 
 ### Chart 1
 
-```{r linear_plot, echo = FALSE}
+```{r linear_plot, warnings = FALSE, echo = FALSE}
 linear_plot
 
 ```
 
 This chart demonstrates the differences between minimum and maximum temperatures over the course of a year. The reason I chose to do a line chart is because it can clearly demonstrate the differences between the two extremes of the temperatures. It also can help to show viewers the overall changes in temperature over the course of a year. The question I hoped to answer with this kind of chart was "Does the difference in minimum and maximum temperatures change over the course of the year?" Many different charts could demonstrate this, I was considering a scatter plot, but ultimately felt that the continuous motions of temperature and seasons would be best visualized by a linear graph.
 
-The chart shows that there is an extreme differenct between the minimum and maximum temperatures of the day. Based on this one year, it seems that minimum temperature stays relatively close to a baseline temperature of -75°C +- 10°C. However, this is a stark contrast from the maximum temperature which ranges from approximately 5°C to -30°C. The average demonstrates the stark contrast between the hottest and coldest temperatures of the day.
+The chart shows that there is an extreme difference between the minimum and maximum temperatures of the day. Based on this one year, it seems that minimum temperature stays relatively close to a baseline temperature of -75°C +- 10°C. However, this is a stark contrast from the maximum temperature which ranges from approximately 5°C to -30°C. The average demonstrates the stark contrast between the hottest and coldest temperatures of the day.
 
 ### Chart 2
 
@@ -143,10 +142,14 @@ Understanding the seasonal temperature changes on Mars is important for several 
 ### Chart 3
 
 ```{r boxplots, echo = FALSE}
-boxplot
+source("pressure_boxplots.R")
 
 ```
 
-This chart demonstrates the differences between minimum and maximum temperatures over the course of a year. The reason I chose to do a line chart is because it can clearly demonstrate the differences between the two extremes of the temperatures. It also can help to show viewers the overall changes in temperature over the course of a year. The question I hoped to answer with this kind of chart was "Does the difference in minimum and maximum temperatures change over the course of the year?" Many different charts could demonstrate this, I was considering a scatter plot, but ultimately felt that the continuous motions of temperature and seasons would be best visualized by a linear graph.
+This chart illustrates four boxplots that show the atmospheric pressure on Mars for each of the planet's seasons. Each boxplot represents a single season, and the four seasons included are spring, summer, fall, and winter.
 
-The chart shows that there is an extreme difference between the minimum and maximum temperatures of the day. Based on this one year, it seems that minimum temperature stays relatively close to a baseline temperature of -75°C +- 10°C. However, this is a stark contrast from the maximum temperature which ranges from approximately 5°C to -30°C. The average demonstrates the stark contrast between the hottest and coldest temperatures of the day.
+The horizontal axis of each boxplot represents each respective season, which are divided generally by Autumnal Equinox (when the solar longitude is equal to 0), Winter Solstice (when the solar longitude is equal to 90), Spring Equinox (when the solar longitude is equal to 180), and Summer Solstice (when the solar longitude is equal to 270). The solar longitude is the Mars-Sun angle, measured from the Northern Hemisphere.
+
+The top and bottom edges of each boxplot indicate the maximum and minimum pressure values recorded during the season. The box itself represents the interquartile range (IQR), or the middle 50% of the pressure data for that season. The median pressure is marked by a horizontal line inside the box.
+
+In general, the boxplots show that Mars experiences significantly less atmospheric pressure in winter than in the other seasons, as winter's median is much smaller. The season of spring seems to range a lot in atmospheric pressure, with the largest IQR. Autumn and summer show the most similar atmospheric pressure, each with a small overall range in the same area. Overall, the series of boxplots provides a clear visual representation of the seasonal patterns of atmospheric pressure on Mars and the significant pressure variations that occur throughout the year.
