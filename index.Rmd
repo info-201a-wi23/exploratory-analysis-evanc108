@@ -120,8 +120,8 @@ This table shows aggregate information of mars' average weather conditions by ea
 
 ### Chart 1
 
-```{r linearplot, echo = FALSE}
-linearplot
+```{r linear_plot, echo = FALSE}
+linear_plot
 
 ```
 
