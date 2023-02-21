@@ -119,7 +119,7 @@ This table shows aggregate information of mars' average weather conditions by ea
 
 ### Chart 1
 
-```{r linear_plot, warnings = FALSE, echo = FALSE}
+```{r linear_plot, warning = FALSE, echo = FALSE}
 linear_plot
 
 ```
