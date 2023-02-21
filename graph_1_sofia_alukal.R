@@ -27,12 +27,12 @@ all_totals <- all_totals[all_totals$terrestrial_date >= "2017-01-01" & all_total
 
 
 linear_plot <- ggplot(data = all_totals) +
-  geom_line(aes(x = as.Date(terrestrial_date), y = max_temp.x, color = "Max"), linewidth = 0.2) +
-  geom_line(aes(x = as.Date(terrestrial_date), y = mean, color = "Average"), linewidth = 0.2) +
-  geom_line(aes(x = as.Date(terrestrial_date), y = min_temp.x, color = "Min"), linewidth = 0.2) +
+  geom_line(aes(x = as.Date(terrestrial_date), y = max_temp.x, color = "Max"), linewidth = 0.2, na.rm = TRUE) +
+  geom_line(aes(x = as.Date(terrestrial_date), y = mean, color = "Average"), linewidth = 0.2, na.rm = TRUE) +
+  geom_line(aes(x = as.Date(terrestrial_date), y = min_temp.x, color = "Min"), linewidth = 0.2, na.rm = TRUE) +
   geom_smooth(aes(x = as.Date(terrestrial_date), y = mean), linewidth = 0.5) + 
   labs(title = "Difference in Min and Max Temperature over a Year on Mars",
-       x = "Date (months/2017)",
+       x = "Date (months)",
        y = "Average Temperature (°C)",
        color = "Temperature Groups"
        ) +
