@@ -88,7 +88,7 @@ Analyzing data about Mars' weather conditions creates some major challenges and 
 
 Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
 
-### Table
+### Table: Aggregate Mars Weather Data by Month
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 # Load library
@@ -98,9 +98,8 @@ library("dplyr")
 
 kable(aggregate_table)
 ```
-Include a table of aggregate information
 
-Describe why you included the table and what information it reveals
+This table shows aggregate information of mars' average weather conditions by each of the twelve months, ordered numerically. We thought that this grouping was interesting to view how the average minimum and maximum temperature (measured in Celsius), as well as pressure varies, or doesn't vary month by month. By finding the average temperature differences between the average minimum and maximum temperatures, we were able to see that temperature on Mars varies extensively each day throughout the 12 month cycle. Some other insights, is how average pressure on Mars varies somewhat more during months 5-9 compared to the rest of the months. 
 
 ### Chart 1
 
