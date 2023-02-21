@@ -10,7 +10,7 @@ library("stringr")
 library("tidyverse")
 source("aggregate_table.R")
 source("summary_script.R")
-source("chart1_example.R")
+source("pressure_boxplots.R")
 source("temp_scatterplot.r")
 source("graph_1_sofia_alukal.R")
 ```
@@ -142,8 +142,8 @@ Understanding the seasonal temperature changes on Mars is important for several 
 
 ### Chart 3
 
-```{r scatterplot, echo = FALSE}
-linear_plot
+```{r boxplots, echo = FALSE}
+boxplot
 
 ```
 
