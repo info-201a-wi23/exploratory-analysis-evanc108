@@ -13,7 +13,7 @@ range_temperature <- mars_df %>%
   group_by(terrestrial_date) %>%
   select(terrestrial_date, min_temp, max_temp)
 
-all_totals <- left_join(avg_temp, range_temperature, by = c("terrestrial_date" = "terrestrial_date"), na.rm = TRUE)
+all_totals <- left_join(avg_temp, range_temperature, by = c("terrestrial_date" = "terrestrial_date"))
 
 View(all_totals)
 all_totals <- all_totals[all_totals$terrestrial_date >= "2017-01-01" & all_totals$terrestrial_date < "2018-01-01", c("terrestrial_date", "mean", "max_temp.x", "min_temp.x")]
@@ -24,21 +24,18 @@ all_totals <- all_totals[all_totals$terrestrial_date >= "2017-01-01" & all_total
   #scale_color_brewer(palette = "Set2") +
   #labs(title = "Min vs Max Temperatures over 2019", x = "Months", y = "Temperature (C)") +
   #scale_x_continuous(breaks = seq(1, 12, 1)) +
-  #scale_y_continuous(limits = range(year_2018_temp$max_temp.x))
 
 
-  ggplot(data = all_totals) +
-  geom_line(aes(x = as.Date(terrestrial_date), y = max_temp.x, color = "blue"), linewidth = 0.2) +
-  geom_line(aes(x = as.Date(terrestrial_date), y = min_temp.x, color = "red"), linewidth = 0.2) +
-  geom_line(aes(x = as.Date(terrestrial_date), y = mean, color = "purple"), linewidth = 0.2) +
+linear_plot <- ggplot(data = all_totals) +
+  geom_line(aes(x = as.Date(terrestrial_date), y = max_temp.x, color = "Max"), linewidth = 0.2) +
+  geom_line(aes(x = as.Date(terrestrial_date), y = mean, color = "Average"), linewidth = 0.2) +
+  geom_line(aes(x = as.Date(terrestrial_date), y = min_temp.x, color = "Min"), linewidth = 0.2) +
   geom_smooth(aes(x = as.Date(terrestrial_date), y = mean), linewidth = 0.5) + 
-  labs(title = "Difference in min and max temperature over a year",
+  labs(title = "Difference in Min and Max Temperature over a Year on Mars",
        x = "Date (months/2017)",
        y = "Average Temperature (°C)",
        color = "Temperature Groups"
        ) +
-  scale_x_date(date_breaks="1 month", date_labels="%B",)
-
-  
-  
-View(linear_plot)
+  scale_x_date(date_breaks="1 month", date_labels="%B",) +
+  theme(plot.title = element_text(hjust = 0.5), 
+          axis.text.x = element_text(angle=40, hjust = 1)) 
