@@ -17,7 +17,7 @@ ls_range_df <- mars_df %>%
 ls_range_df
 
 
-boxplot(pressure~ranges, data = ls_range_df, 
+boxplot <- boxplot(pressure~ranges, data = ls_range_df, 
         main = "Atmospheric Pressure in Mars for Each Season", 
         at = c(1, 2, 3, 4),
         names = c("Autumn", "Winter", "Spring", "Summer"), 
