@@ -1,3 +1,4 @@
+
 ---
 title: "Exploratory Analysis"
 output: html_document
@@ -89,6 +90,14 @@ Write a summary paragraph of findings that includes the 5 values calculated from
 
 ### Table
 
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Load library
+source("aggregate_table.R")
+library("kableExtra")
+library("dplyr")
+
+kable(aggregate_table)
+```
 Include a table of aggregate information
 
 Describe why you included the table and what information it reveals
@@ -101,7 +110,7 @@ Describe why you chose this chart and what information it reveals
 
 Here's an example of how to run an R script inside an RMarkdown file:
 
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
+```{r, echo = FALSE, code = readLines("chart1_example.R")}
 ```
 
 ### Chart 2
