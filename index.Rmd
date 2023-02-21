@@ -118,15 +118,13 @@ This table shows aggregate information of mars' average weather conditions by ea
 
 ### Chart 1
 
+```{r linearplot, echo = FALSE}
+linearplot
+
+```
 This chart demonstrates the differences between minimum and maximum temperatures over the course of a year. The reason I chose to do a line chart is because it can clearly demonstrate the differences between the two extremes of the temperatures. It also can help to show viewers the overall changes in temperature over the course of a year. The question I hoped to answer with this kind of chart was "Does the difference in minimum and maximum temperatures change over the course of the year?" Many different charts could demonstrate this, I was considering a scatter plot, but ultimately felt that the continuous motions of temperature and seasons would be best visualized by a linear graph.
 
 The chart shows that there is an extreme differenct between the minimum and maximum temperatures of the day. Based on this one year, it seems that minimum temperature stays relatively close to a baseline temperature of -75°C +- 10°C. However, this is a stark contrast from the maximum temperature which ranges from approximately 5°C to -30°C. The average demonstrates the stark contrast between the hottest and coldest temperatures of the day.
-Here's an example of how to run an R script inside an RMarkdown file:
-
-```{r chart1, echo = FALSE}
-chart1
-
-```
 
 ### Chart 2
 ```{r scatterplot, echo = FALSE}
