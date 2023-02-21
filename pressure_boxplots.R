@@ -21,5 +21,4 @@ boxplot(pressure~ranges, data = ls_range_df,
         main = "Atmospheric Pressure in Mars for Each Season", 
         at = c(1, 2, 3, 4),
         names = c("Autumn", "Winter", "Spring", "Summer"), 
-        xlab = "Atmospheric Pressure", ylab = "Solar Longitude", col = "lightpink")
-
+        xlab = "Season on Mars", ylab = "Atmospheric Pressure", col = "lightpink")
