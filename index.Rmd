@@ -96,7 +96,12 @@ source("aggregate_table.R")
 library("kableExtra")
 library("dplyr")
 
-kable(aggregate_table)
+knitr::kable(aggregate_table,
+             col.names = c('Month',
+                           'Average Minimum Temperature',
+                           'Average Maximum Temperature',
+                           'Average Temperature Difference',
+                           'Average Pressure'))
 ```
 
 This table shows aggregate information of mars' average weather conditions by each of the twelve months, ordered numerically. We thought that this grouping was interesting to view how the average minimum and maximum temperature (measured in Celsius), as well as pressure varies, or doesn't vary month by month. By finding the average temperature differences between the average minimum and maximum temperatures, we were able to see that temperature on Mars varies extensively each day throughout the 12 month cycle. Some other insights, is how average pressure on Mars varies somewhat more during months 5-9 compared to the rest of the months. 
